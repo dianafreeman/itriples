@@ -5,7 +5,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package WP_Bootstrap_Starter
+ * 
  */
 
 get_header(); ?>
@@ -13,8 +13,8 @@ get_header(); ?>
 
 		<?php
 		while ( have_posts() ) : the_post();
-			if (is_singular('itriples_conference')){
-				get_template_part( 'template-parts/content', 'conference' );
+			if (is_singular('conference')){
+				get_template_part( 'template-parts/single/single', 'conference' );
 			} else { ?>
 
 	<section id="primary" class="content-area col-lg-9">
@@ -37,7 +37,7 @@ get_header(); ?>
 	</section><!-- #primary -->
 
 <?php
-if (!is_singular('itriples_conference')){
+if (!is_singular('conference')){
 	get_sidebar();
 
 }

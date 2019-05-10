@@ -33,9 +33,7 @@ get_header(); ?>
 			Jump to: <select class="custom-select" name="measurelist" form="measureNav" style="width: 60%;">
 
 			</select>
-
-
-				<input id="submit-anchor" class="btn btn-outline-secondary" type="submit" value="Go">
+			<input id="submit-anchor" class="btn btn-outline-secondary" type="submit" value="Go">
 			</div>
 			<div class="row">
 			<?php
@@ -47,7 +45,7 @@ get_header(); ?>
 				 * If you want to override this in a child theme, then include a file
 				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 				 */
-				get_template_part( 'template-parts/content', 'measures' );
+				get_template_part( 'template-parts/content/content', 'measures' );
 
 			endwhile;
 	

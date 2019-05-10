@@ -5,6 +5,12 @@ Description: A clean, modern, engaging and responsive WordPress education theme 
 Version: 1.0
 */
 
+.post-meta, .entry-meta{
+    display:none !important;
+}
+.sfsi_widget{
+    background: white;
+}
 .rounded {
     border-radius: 50% !important;
 }
@@ -66,9 +72,10 @@ background-size: cover;
     padding: 2em ;
 }
 
-.top-right-social-area{
-    z-index: 200;
-display: none;
+.top-right-widget{
+    z-index: 9999999;
+    display: block;
+    
 }
 
 .invisible-btn, .invisible-btn:focus, .invisible-btn:active{
@@ -644,10 +651,27 @@ bottom:0;
     background: rgba(255, 255, 255, 0.8);
     border-radius: 5px;
     position: relative;
-    padding: 1em;
-    margin: 1em;
     overflow: hidden;
-    margin-left: 2em;
+}
+
+#conference-content .conference-details:not(#awardDiv){
+    display: inline-grid;
+}
+
+#conference-content .post-content{
+font-size: 1.25em;
+}
+
+#conference-content .post-content a{
+color: blue;
+}
+
+.detail-text{
+padding-top:3em;
+}
+
+.detail-text h2{
+    text-transform: initial;
 }
 
 #conference-content .conference-sub-details .col{
@@ -669,7 +693,7 @@ bottom:0;
 max-width: 260px;
 }
 
-#conference-content .conference-details div:not(.award){
+#conference-content .conference-details div:not(.award):not(#clockdiv div){
     display: inline-block;
     float: left;
     height: 100%;
@@ -707,9 +731,14 @@ max-width: 260px;
     display: inline-block;
     font-weight: 100;
     font-size: 30px;
-    position: absolute;
-    bottom: 3em;
-    left: 0%;
+}
+
+@media screen and (max-width: 640px){
+    
+    #clockdiv{
+        padding-bottom: 2em;
+
+    }
 }
 
 #clockdiv > div{
@@ -723,7 +752,7 @@ max-width: 260px;
     color: white;
     padding: 15px;
     border-radius: 3px;
-    background: gray;
+    background: #3cadd8;
     display: inline-block;
 }
 
@@ -731,7 +760,9 @@ max-width: 260px;
     padding-top: 5px;
     font-size: 16px;
 }
-
+.post-navigation{
+    display:none;
+}
 .inline-footnote{
     padding: 1px .5px !important;
     background-color: none;

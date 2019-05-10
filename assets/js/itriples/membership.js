@@ -12,28 +12,46 @@ jQuery('#submit-application').on('click', function(e) {
 
 });
 var form = jQuery('form#membership-app');
+
 var url = 'https://script.google.com/macros/s/AKfycbxQroijtgLAy4TanFs6GCftfMYUqN0Rj0HVT1qDdupI0E3wD2Y/exec';
+/*
+Note on JQuery .serialize():
+* Only "successful controls" are 
+* serialized to the string. No 
+* submit button value is serialized
+* since the form was not submitted
+* using a button. 
+*
+* For a form element's value to be 
+* included in the serialized string, 
+* the element must have a name attribute. 
+* Values from checkboxes and radio buttons 
+* (inputs of type "radio" or "checkbox") are 
+* included only if they are checked. Data 
+* from file select elements are not serialized.
+*/
 
 
 var jqxhr = jQuery.ajax({
     url: url,
     method: "GET",
     dataType: "json",
-    data: form.serialize(),
+    data: form.serialize()
 
   }).success(
   function(){
   jQuery('#loader').fadeOut(500).delay(300);
   jQuery('#submit-application').fadeOut(500);
   jQuery('#website-signup').removeClass('hidden').end().fadeIn(500);
-  var selectedMembership = jQuery('#membership-selection input').attr('id');
+  jQuery('#register-links').removeClass('hidden');
+  var selectedMembership = jQuery('#membership-selection label.active').find('input').attr('id');
   if (selectedMembership == "selectStudentApp"){
     jQuery('a#student-register').removeClass('hidden');
   } else if (selectedMembership == "selectProfApp"){
      jQuery('a#professional-register').removeClass('hidden');
-  }
+}
 
-}); // END On success
+}); // END On success  
 }// END if there are no errors
 
 
@@ -43,25 +61,6 @@ var jqxhr = jQuery.ajax({
 }); // END on load
 
 
-/*function gatherInfo(){
-var form = jQuery('form#membership-app');
-var url = 'https://script.google.com/macros/s/AKfycbxQroijtgLAy4TanFs6GCftfMYUqN0Rj0HVT1qDdupI0E3wD2Y/exec';
-
-jQuery('#submit-application').on('click', function(e) {
-  e.preventDefault();
-  console.log("woot woot!")
-/*
-  var jqxhr = jQuery.ajax({
-    url: url,
-    method: "GET",
-    dataType: "json",
-    data: form.serializeObject()
-  }).success(
-    // do something
-  );
-});
-
-}*/
 
 function testFormItems(){
   console.log(jQuery('#register fieldset.student input'));

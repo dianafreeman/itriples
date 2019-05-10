@@ -23,13 +23,8 @@
         <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'wp-bootstrap-starter' ); ?></a>
         <?php if(!is_page_template( 'blank-page.php' ) && !is_page_template( 'blank-page-with-container.php' )): ?>
         <header id="masthead" class="site-header " role="banner">
-                                <div class="top-right-social-area">
-<a class="social-link" href="<?php echo esc_url("https://facebook.com/itriples") ;?>"> 
-    <i class="fab fa-facebook-f"></i></a>
-<a class="social-link" href="<?php echo esc_url("https://twitter.com/itriples") ;?>"> 
-    <i class="fab fa-twitter"></i>
-</a>
-    </div><!-- #primary-sidebar -->
+<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar("Top Right Widget Area") ) : ?>
+<?php endif;?>
             <div class="container-fluid">
                 <div class="top-header row">
                     <div class="navbar-brand col-sm-8 offset-sm-2 text-center">

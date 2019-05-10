@@ -75,7 +75,7 @@
 				if( $post_objects ): ?>
 				<?php foreach( $post_objects as $post):
 				setup_postdata($post); ?>
-				<div class="col-sm-4 my-4">
+				<div class="col-sm-4 my-4 mx-auto">
 					<div class="card">
 						<div class="card-body">
 							

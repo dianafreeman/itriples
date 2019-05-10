@@ -13,7 +13,7 @@ function enqueue_itriples_styles(){
 	wp_register_style( 'font-awesome', get_stylesheet_directory_uri().'/assets/css/fontawesome-all.min.css');
 	wp_register_style( 'hover', get_stylesheet_directory_uri().'/assets/css/hover.css');
 	wp_register_style('balthazar-font', 'https://fonts.googleapis.com/css?family=Balthazar');
-	wp_register_style('animate-on-scroll-css', get_stylesheet_directory_uri().'/inc/aos/aos.css');
+	wp_register_style('animate-on-scroll-css', get_stylesheet_directory_uri().'/assets/aos/aos.css');
     wp_register_style('lux-bootswatch', get_stylesheet_directory_uri().'/assets/css/lux-bootswatch.css');
     wp_register_style('owl-carousel', get_stylesheet_directory_uri().'/assets/css/owl.carousel.min.css');
     wp_register_style('owl-carousel-theme', get_stylesheet_directory_uri().'/assets/css/owl.theme.default.min.css');
@@ -53,9 +53,8 @@ function enqueue_itriples_scripts(){
 
     };
 
-    if (is_singular('itriples_conference')){
-        
-    wp_register_script('conference-clock', get_stylesheet_directory_uri().'/assets/js/itriples/conference-clock.js', array('jquery'),'' ,true);
+    if (is_singular('conference') || has_tag('front-feature')){
+    wp_register_script('conference-clock', get_stylesheet_directory_uri().'/assets/js/conference-clock.js', array('jquery'),'' ,true);
     wp_enqueue_script ('conference-clock');
     }
 
@@ -87,13 +86,14 @@ function enqueue_itriples_scripts(){
 
     }
 
+    wp_enqueue_script( 'bootstrap-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', array('jquery'), '', true );
 	wp_register_script('itriples-global', get_stylesheet_directory_uri().'/assets/js/itriples-global.js',
 	array('jquery'),'' ,true);
 
 	wp_register_script('owl-carousel', get_stylesheet_directory_uri().'/assets/js/owl.carousel.min.js',
 	array('jquery'),'' ,true);
 
-	wp_register_script('animate-on-scroll-js', get_stylesheet_directory_uri().'/inc/aos/aos.js',array('jquery'),'' ,true);
+	wp_register_script('animate-on-scroll-js', get_stylesheet_directory_uri().'/assets/aos/aos.js',array('jquery'),'' ,true);
 
     wp_register_script('countrypicker', get_stylesheet_directory_uri().'/assets/js/countrypicker.min.js',array('jquery'),'' ,true);
     
@@ -260,3 +260,6 @@ function privacy_tools_content() {
     echo do_shortcode('[gdpr_privacy_tools]');
 }
 
+
+include plugin_dir_path( __FILE__ ).'inc/itriples_customposts.php';
+include plugin_dir_path( __FILE__ ).'inc/itriples_customtaxonomies.php';

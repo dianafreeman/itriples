@@ -174,8 +174,7 @@ var theMap = AmCharts.makeChart( "conferenceMapdiv", {
       "longitude": -91.501753,
       "id": 2016,
       "programLink": THEME_DIR+"/conferences/PDFs/2016.pdf"
-
-    },{
+ }, {
       "type": "circle",
       "accessibleLabel": "Temple University",
       "institution": "Temple University",
@@ -187,9 +186,21 @@ var theMap = AmCharts.makeChart( "conferenceMapdiv", {
       "longitude": -75.157837,
       "id": 2017,
       "programLink": THEME_DIR+"/conferences/PDFs/2017.pdf"
-    }]
+    }, {
+      "type": "circle",
+      "accessibleLabel": "Universität Ulm",
+      "institution": "Universität Ulm",
+      "tabIndex": 2,
+      "zoomLevel": 3,
+      "description": "The 13th annual meeting of ISSS featured breakout sessions on media and communication reporting guidelines, with a special focus on increasing international collaboration.<span class='host'>Dr. Imke Baetens</span> <br><a href='https://itriples.org/wp-content/themes/itriples-theme/conferences/PDFs/Programma2018.pdf'>View the Program</a>",
+      "title": "Universität Ulm<br><small>June 22rd-23th, 2018</small>",
+      "latitude": 50.848908,
+      "longitude": 4.3666,
+      "id": 2018,
+      "programLink": THEME_DIR+"/conferences/PDFs/2018.pdf"
+    }],
   },
-  "export" :{
+  "export" : {
     "enabled": true
   }
 });
